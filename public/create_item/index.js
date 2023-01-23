@@ -1,7 +1,7 @@
 let returnButton = document.getElementById("Return");
 
 returnButton.addEventListener("click", async() => {
-    window.location.href = "/public"
+    window.location.href = "http://localhost:5000/"
 })
 
 let submitButton = document.getElementById('Submit');
@@ -21,16 +21,14 @@ submitButton.addEventListener('click', async () => {
         stockNumber
     }
 
-    let response = await fetch('http://localhost:5000/create_product', {
+    await fetch('http://localhost:5000/create_product', {
         method: "POST",
         headers: {
             'Content-Type': 'application/json',
         },
         // to send JSON data over HTTP
         body: JSON.stringify(item)
-
     })
-
-   
+   console.log(item);
 
 })
