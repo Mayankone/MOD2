@@ -1,0 +1,8 @@
+#Background{
+    background-color: lightpink;
+}
+
+#navbar{
+    display: flex;
+    justify-content: space-between;
+}
