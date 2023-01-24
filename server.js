@@ -42,6 +42,18 @@ app.post('/create_product', async (req, res) => {
     res.send(returnedValue);
 }) 
 
+app.get('/get_products', async (req, res) => {
+    let response = await myItem.find({});
+    console.log(response);
+    res.json(response);
+})
+
+app.get('/get_specific_product/:productId', async (req, res) => {
+    let id = req.params.productId;
+    let response = await myItem.findById(id);
+    console.log(response);
+    res.send(response);
+})
 
 app.listen(5000, () => {
     console.log("Server is listening on 5000");
