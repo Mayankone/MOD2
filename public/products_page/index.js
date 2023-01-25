@@ -14,6 +14,7 @@ returnButton.addEventListener("click", async() => {
 })
 
 
+
 const getSingleProduct = async () => {
     let response = await fetch(`http://localhost:5000/get_specific_product/${value}`);
 
@@ -51,3 +52,43 @@ const getSingleProduct = async () => {
 }
 
 getSingleProduct()
+
+
+const updateProduct = async () => {
+    let submitButton = document.getElementById("submit");
+    
+
+submitButton.addEventListener("click", async () => {
+    let response = await fetch(`http://localhost:5000/update`,
+    {
+        method: 'PUT',
+        headers: {
+            'Content-Type': "application/json"
+        },
+        body: {
+            id: value,
+            dataToUpdate: {
+                name: "KALE"
+            }
+        }
+        
+    }
+    )
+    let finalData = await response.json();
+
+    console.log(finalData);
+    })
+}
+
+
+const deleteProduct = async () => {
+    let deleteButton = document.getElementById("Delete");
+    deleteButton.addEventListener("click", async () => {
+        let response = await fetch(`http://localhost:5000/delete/${value}`,{
+            method: "delete",
+        })
+        console.log(response);
+    })
+}
+
+deleteProduct()

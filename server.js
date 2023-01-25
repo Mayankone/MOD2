@@ -55,6 +55,21 @@ app.get('/get_specific_product/:productId', async (req, res) => {
     res.send(response);
 })
 
+app.post('/update', async (req, res) => {
+    console.log(req.body);
+    let response = await myItem.findByIdAndUpdate(req.body.id, {name: req.body.name});
+    console.log("response", response);
+    res.json(response)
+})
+
+app.delete("/delete/:productId", async(req, res) => {
+    let id = req.params.productId;
+    console.log(req.body)
+    let response = await myItem.findByIdAndDelete(id)
+    res.send(response)
+    res.redirect("/")
+})
+
 app.listen(5000, () => {
     console.log("Server is listening on 5000");
 })
