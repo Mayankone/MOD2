@@ -67,7 +67,14 @@ app.delete("/delete/:productId", async(req, res) => {
     console.log(req.body)
     let response = await myItem.findByIdAndDelete(id)
     res.send(response)
-    res.redirect("/")
+})
+
+app.get("/search/:product_name", async(req, res) => {
+    let name = req.params.product_name;
+    console.log(req.body);
+    let response = await myItem.findOne({name});
+    console.log(response);
+    res.send(response);
 })
 
 app.listen(5000, () => {

@@ -40,4 +40,20 @@ const getData = async () => {
     })
 }
 
+const searchBar = async () => { 
+let searchButton = document.getElementById('Search');
+
+searchButton.addEventListener("click", async() => {
+    let searchString = document.getElementById("search-input").value;
+    const searchItem = {searchString}
+    console.log(searchItem);
+    let data = await fetch(`http://localhost:5000/search/${searchString}`);
+    data.json().then((parsedData) => {
+        console.log(parsedData._id);
+        window.location.href = `./products_page?databaseId=${parsedData._id}`
+        })
+    
+})
+}
+searchBar();
 getData();
