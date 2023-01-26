@@ -59,26 +59,34 @@ const updateProduct = async () => {
     
 
 submitButton.addEventListener("click", async () => {
-    let response = await fetch(`http://localhost:5000/update`,
+    let newName = document.getElementById("name-input").value;
+    let newUrl = document.getElementById("url-input").value;
+    let newDescription = document.getElementById("description-input").value;
+    let newPrice = +document.getElementById("price-input").value;
+    let newStock = +document.getElementById("stock-input").value;
+
+    const product = {
+        newName,
+        newUrl,
+        newDescription,
+        newPrice,
+        newStock
+    }
+    let response = await fetch(`http://localhost:5000/update/${value}`,
     {
         method: 'PUT',
         headers: {
-            'Content-Type': "application/json"
+            'Content-Type': 'application/json'
         },
-        body: {
-            id: value,
-            dataToUpdate: {
-                name: "KALE"
-            }
-        }
-        
-    }
-    )
+        body: JSON.stringify(product)
+    })
     let finalData = await response.json();
 
     console.log(finalData);
     })
 }
+
+updateProduct()
 
 
 const deleteProduct = async () => {

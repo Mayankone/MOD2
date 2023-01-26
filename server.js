@@ -50,14 +50,17 @@ app.get('/get_products', async (req, res) => {
 
 app.get('/get_specific_product/:productId', async (req, res) => {
     let id = req.params.productId;
+    console.log(id);
     let response = await myItem.findById(id);
     console.log(response);
     res.send(response);
 })
 
-app.post('/update', async (req, res) => {
-    console.log(req.body);
-    let response = await myItem.findByIdAndUpdate(req.body.id, {name: req.body.name});
+app.put('/update/:productId', async (req, res) => {
+    let id = req.params.productId;
+    const {newName: name, newUrl: url, newDescription: description, newPrice: price, newStock: stock} = req.body;
+    let newProduct = {name, url, description, price, stock}
+    let response = await myItem.findByIdAndUpdate(id, newProduct, {new:true});
     console.log("response", response);
     res.json(response)
 })
