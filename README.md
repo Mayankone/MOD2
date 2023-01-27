@@ -33,3 +33,12 @@ Frontend specifics:
 3. Create Page
     - Allows user to input data to create a new product(Uses the /create_product)
 
+
+#This is my heading one!!!
+
+{
+    firstname: Mayank
+    lastname: Kumar
+    age: 26
+}
+
