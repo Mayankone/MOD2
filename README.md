@@ -47,3 +47,6 @@ Frontend specifics:
 
 ~~The world is flat.~~
 
+Commiseration
+: Sympathy and sorrow for the misfortune of others
+
