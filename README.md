@@ -34,11 +34,16 @@ Frontend specifics:
     - Allows user to input data to create a new product(Uses the /create_product)
 
 
-#This is my heading one!!!
+# This is my heading one!!!
 
+```
 {
     firstname: Mayank
     lastname: Kumar
     age: 26
 }
+
+```
+
+~~The world is flat.~~
 
