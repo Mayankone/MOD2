@@ -17,9 +17,6 @@ const getData = async () => {
         parsedData.forEach(element => {
             let image = document.createElement("img")
             let pTag = document.createElement("p");
-            let pTag2 = document.createElement("p");
-            let pTag3 = document.createElement("p");
-            let pTag4 = document.createElement("p");
             image = new Image(180, 200)
             image.src = element.url;
             image.databaseid = element._id;
@@ -28,14 +25,9 @@ const getData = async () => {
                 window.location.href = `./products_page?databaseId=${event.target.databaseid}`
             }
             pTag.textContent = element.name;
-            pTag2.textContent = "$" + element.price;
-            pTag3.textContent = "Description: " + element.description;
-            pTag4.textContent = "Stock: " + element.stock;
-            productsElement.appendChild(image);
             productsElement.appendChild(pTag);
-            productsElement.appendChild(pTag2);
-            productsElement.appendChild(pTag3);
-            productsElement.appendChild(pTag4);
+            productsElement.appendChild(image);
+            
         });
     })
 }

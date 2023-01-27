@@ -10,7 +10,15 @@
 #container {
     display: flex;
     flex-direction: column;
-    max-width: 200px;
+    max-width: 20px;
 
+}
+
+#Products {
+    font-size: 30px;
+}
+
+#Create{
+    margin: 20px;
 }
 

@@ -25,12 +25,27 @@ const getSingleProduct = async () => {
     let pTag3 = document.createElement("p");
     let pTag4 = document.createElement("p");
     let buyButton = document.getElementById("BUY");
-    buyButton.addEventListener("click", async => {
+
+
+    buyButton.addEventListener("click", async () => {
         finalData.stock = finalData.stock - 1;
         pTag3.innerHTML = "Stock: " + finalData.stock;
         if(finalData.stock <= 0){
             pTag3.innerHTML = "Out of Stock"
+            buyButton.disabled = true;
         }
+        let newStock = {stock: finalData.stock};
+        console.log("sending fetch")
+        let response = await fetch(`http://localhost:5000/updatestock/${value}`,{
+            method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newStock),
+        })
+        let newData = await response.json();
+
+        console.log(newData);
     })
     
 

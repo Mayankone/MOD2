@@ -65,6 +65,14 @@ app.put('/update/:productId', async (req, res) => {
     res.json(response)
 })
 
+app.put('/updatestock/:productId', async (req, res) => {
+    let id = req.params.productId;
+    console.log(req.body);
+    let response = await myItem.findByIdAndUpdate(id, req.body, {new:true});
+    console.log("response", response);
+    res.json(response);
+})
+
 app.delete("/delete/:productId", async(req, res) => {
     let id = req.params.productId;
     console.log(req.body)
