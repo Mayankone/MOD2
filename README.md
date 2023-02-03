@@ -50,5 +50,9 @@ Frontend specifics:
 Commiseration
 : Sympathy and sorrow for the misfortune of others
 
-I need to highlight these ==very important words==.
 
+*Italic*
+
+
+First video with the code - https://www.youtube.com/watch?v=7uZhl8rw9po
+Second video with the website - https://www.youtube.com/watch?v=eqYUSMSONfM

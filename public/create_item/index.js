@@ -14,7 +14,7 @@ submitButton.addEventListener('click', async () => {
     let stockNumber = +document.getElementById('stock-input').value;
 
     const item = {
-        nameString,
+        nameString ,
         urlString,
         descriptionString,
         priceNumber,
